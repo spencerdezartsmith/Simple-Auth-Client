@@ -17,10 +17,15 @@ export function verifyUser({ email, password }, action) {
         // redirect to route /feature
         browserHistory.push('/feature')
       })
-      .catch(() => {
+      .catch(error => {
         // If request is bad..
         // Show an error to the user
-        dispatch(authError('Bad login info. Please try again!'))
+        const errorMessage = error.response.data.error
+        if (errorMessage) {
+          dispatch(authError(error.response.data.error))
+        } else {
+          dispatch(authError('Invalid login details!'))
+        }
       })
   }
 }

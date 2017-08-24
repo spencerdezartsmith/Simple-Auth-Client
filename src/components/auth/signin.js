@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 import * as actions from '../../actions'
 
 class Signin extends Component {
+  componentWillMount() {
+    this.props.authError('')
+  }
+  
   renderInput(field) {
     return <input {...field.input} type={field.type} className="form-control" />
   }
