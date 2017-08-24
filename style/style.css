@@ -1,0 +1,9 @@
+.navbar.navbar-light {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav.navbar-nav {
+  display: flex;
+  align-items: center;
+}
